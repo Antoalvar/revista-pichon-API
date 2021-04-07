@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_restful import Api
 import psycopg2 as pg2
@@ -5,7 +7,7 @@ import psycopg2 as pg2
 from resources.post import Post, PostsList
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:galway@localhost/data'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:galway@localhost/data')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api = Api(app)
 
