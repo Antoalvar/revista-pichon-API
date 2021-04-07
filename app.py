@@ -9,10 +9,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:galway@localhost/
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 api.add_resource(Post, '/post/<string:post_id>')
 api.add_resource(PostsList, '/posts')
 if __name__ == '__main__':
