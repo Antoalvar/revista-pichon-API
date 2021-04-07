@@ -13,7 +13,6 @@ class Post(Resource):
     def get(self, post_id):
         post = PostModel.find_by_id(post_id)
         if post:
-            print(post.json()['post_id'])
             return post.json()
 
         return {'message': 'post not found'}, 404
@@ -56,5 +55,4 @@ class Post(Resource):
 
 class PostsList(Resource):
     def get(self):
-        print([post.json() for post in PostModel.query.all()])
         return {'posts': [post.json() for post in PostModel.query.all()]}
