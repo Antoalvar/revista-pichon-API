@@ -9,7 +9,7 @@ from resources.post import Post, PostsList
 
 app = Flask(__name__)
 api = Api(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:galway@localhost/data')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://kpzeepxbsthjgz:a7b1e2edf861ad5b9f6e550d11992dbb186872c8a0eb59a610f5fa0f37b4eedc@ec2-54-228-99-58.eu-west-1.compute.amazonaws.com:5432/d4b5r8scgi7932'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
